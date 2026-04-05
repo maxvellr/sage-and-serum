@@ -1,0 +1,48 @@
+---
+import ServiceCard from './ServiceCard.astro'
+
+const services = [
+  {
+    title: 'Custom Facial',
+    description: 'A fully personalized treatment tailored to your skin\'s unique needs and goals.',
+    duration: '60 min',
+  },
+  {
+    title: 'Red Light Therapy',
+    description: 'Non-invasive light therapy to stimulate collagen, reduce inflammation, and promote healing.',
+    duration: '30 min',
+  },
+  {
+    title: 'Chemical Peel',
+    description: 'Targeted exfoliation to resurface skin, address pigmentation, and reveal a clearer complexion.',
+    duration: '45 min',
+  },
+  {
+    title: 'Brow & Lash Tinting',
+    description: 'Define and enhance your natural features with long-lasting, clean tinting services.',
+    duration: '30 min',
+  },
+]
+---
+
+<section class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+      <div>
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-sage mb-3">What We Offer</p>
+        <h2 class="font-display text-5xl text-navy">Services</h2>
+      </div>
+      <a href="/menu" class="font-body text-sm text-sage hover:text-navy transition-colors underline underline-offset-4">
+        View full menu →
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map(s => (
+        <ServiceCard title={s.title} description={s.description} duration={s.duration} />
+      ))}
+    </div>
+
+  </div>
+</section>

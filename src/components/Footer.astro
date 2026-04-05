@@ -1,0 +1,63 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/menu', label: 'Services' },
+  { href: '/location', label: 'Location & Hours' },
+  { href: '/affiliates', label: 'Affiliates' },
+]
+---
+
+<footer class="bg-navy text-cream py-16">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+
+    <!-- Brand -->
+    <div class="space-y-4">
+      <p class="font-display text-3xl italic">Sage & Serum</p>
+      <p class="font-body text-sm text-cream/60 leading-relaxed max-w-xs">
+        A boutique esthetics studio rooted in clean ingredients, intentional care, and skin that truly thrives.
+      </p>
+    </div>
+
+    <!-- Nav links -->
+    <div>
+      <p class="font-body text-xs uppercase tracking-[0.25em] text-sage-light mb-6">Navigation</p>
+      <ul class="space-y-3">
+        {links.map(link => (
+          <li>
+            <a href={link.href} class="font-body text-sm text-cream/70 hover:text-cream transition-colors">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <p class="font-body text-xs uppercase tracking-[0.25em] text-sage-light mb-6">Get In Touch</p>
+      <div class="space-y-3 font-body text-sm text-cream/70">
+        <p>San Clemente, CA</p>
+        <p>hello@sageandserumskin.com</p><a
+          href="https://instagram.com"
+          target="_blank"
+          class="inline-block hover:text-cream transition-colors"
+        >
+          @sageandserumskin
+        </a>
+      </div>
+      <a
+      
+        href="#book"
+        class="inline-block mt-8 border border-sage-light/40 text-cream font-body text-sm px-5 py-2.5 rounded-full hover:bg-cream/10 transition-colors"
+      >
+        Book Now
+      </a>
+    </div>
+
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-cream/10 flex flex-col md:flex-row justify-between gap-2">
+    <p class="font-body text-xs text-cream/30">© 2025 Sage & Serum. All rights reserved.</p>
+  </div>
+</footer>

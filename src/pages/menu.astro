@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ServiceCard from '../components/ServiceCard.astro'
+
+const categories = [
+  {
+    name: 'Facials',
+    services: [
+      { title: 'Custom Facial', description: 'A fully personalized treatment addressing your skin\'s current needs — from deep cleansing to targeted serums and massage.', duration: '60 min' },
+      { title: 'Express Facial', description: 'A focused, results-driven treatment perfect for a skin reset when time is limited.', duration: '30 min' },
+      { title: 'Back Facial', description: 'All the benefits of a custom facial applied to the back — ideal for congestion, breakouts, or dry skin.', duration: '45 min' },
+    ]
+  },
+  {
+    name: 'Advanced Treatments',
+    services: [
+      { title: 'Chemical Peel', description: 'Targeted exfoliation to resurface skin, address pigmentation, and reveal a clearer, smoother complexion.', duration: '45 min' },
+      { title: 'Red Light Therapy', description: 'Non-invasive light therapy to stimulate collagen production, reduce inflammation, and accelerate healing.', duration: '30 min' },
+      { title: 'Microdermabrasion', description: 'Mechanical exfoliation to buff away dead skin cells and stimulate circulation for a brighter tone.', duration: '45 min' },
+    ]
+  },
+  {
+    name: 'Enhancements',
+    services: [
+      { title: 'Brow Tint', description: 'Define and shape your brows with long-lasting clean tint perfectly matched to your coloring.', duration: '20 min' },
+      { title: 'Lash Tint', description: 'Deepen and define your natural lashes without mascara — great for low-maintenance days.', duration: '20 min' },
+      { title: 'Brow & Lash Tint', description: 'The full brow and lash experience combined into one appointment.', duration: '30 min' },
+    ]
+  },
+]
+---
+
+<BaseLayout title="Services">
+  <main class="pt-28 pb-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="max-w-2xl mb-16">
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-sage mb-4">What We Offer</p>
+        <h1 class="font-display text-6xl text-navy mb-6">Service Menu</h1>
+        <p class="font-body text-base text-navy/60 leading-relaxed">
+          Every service at Sage & Serum is built around your needs.
+          Browse the menu below and reach out with any questions before booking.
+        </p>
+      </div>
+
+      <!-- Categories -->
+      <div class="space-y-16">
+        {categories.map(cat => (
+          <div>
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-8 h-px bg-sage" />
+              <h2 class="font-display text-3xl text-navy">{cat.name}</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cat.services.map(s => (
+                <ServiceCard title={s.title} description={s.description} duration={s.duration} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-20 bg-sage/10 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="font-display text-3xl text-navy mb-2">Ready to book?</h3>
+          <p class="font-body text-sm text-navy/60">Appointments available Tuesday–Saturday.</p>
+        </div>
+        <a href="#book" class="bg-sage text-cream font-body text-sm px-8 py-3 rounded-full hover:bg-navy transition-colors whitespace-nowrap">
+          Book a Service
+        </a>
+      </div>
+
+    </div>
+  </main>
+</BaseLayout>
