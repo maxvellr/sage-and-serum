@@ -1,6 +1,5 @@
 ---
 import ServiceCard from './ServiceCard.astro'
-const base = import.meta.env.BASE_URL
 
 const services = [
   {
@@ -26,15 +25,15 @@ const services = [
 ]
 ---
 
-<section class="bg-white py-24">
+<section class="bg-silver/30 py-24">
   <div class="max-w-6xl mx-auto px-6">
 
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
       <div>
-        <p class="font-body text-xs uppercase tracking-[0.25em] text-sage mb-3">What We Offer</p>
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">What We Offer</p>
         <h2 class="font-display text-5xl text-navy">Services</h2>
       </div>
-      <a href="/sage-and-serum/menu" class="font-body text-sm text-sage hover:text-navy transition-colors underline underline-offset-4">
+      <a href="/sage-and-serum/menu" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
         View full menu →
       </a>
     </div>

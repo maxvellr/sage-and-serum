@@ -29,7 +29,7 @@ const affiliates = [
 
       <!-- Header -->
       <div class="max-w-2xl mb-16">
-        <p class="font-body text-xs uppercase tracking-[0.25em] text-sage mb-4">Trusted Brands</p>
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">Trusted Brands</p>
         <h1 class="font-display text-6xl text-navy mb-6">Affiliates & Favorites</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
           Everything listed here is something used and believed in; products
@@ -42,9 +42,9 @@ const affiliates = [
       <!-- Cards -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
         {affiliates.map(a => (
-          <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-sage/10 hover:border-sage/30 transition-colors">
+          <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
             <div>
-              <span class="font-body text-xs uppercase tracking-[0.2em] text-sage">{a.category}</span>
+              <span class="font-body text-xs uppercase tracking-[0.2em] text-teal">{a.category}</span>
             </div>
             <div class="flex-1 space-y-2">
               <h3 class="font-display text-2xl text-navy">{a.name}</h3>
@@ -53,7 +53,7 @@ const affiliates = [
             <a
               href={a.url}
               target="_blank"
-              class="inline-block font-body text-sm text-sage hover:text-navy transition-colors underline underline-offset-4"
+              class="inline-block font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4"
             >
               Shop now →
             </a>
@@ -62,7 +62,7 @@ const affiliates = [
       </div>
 
       <!-- Disclosure -->
-      <div class="border-t border-sage/20 pt-10">
+      <div class="border-t border-silver pt-10">
         <p class="font-body text-xs text-navy/40 max-w-2xl leading-relaxed">
           Disclosure: Some links on this page are affiliate links. Sage & Serum may earn a
           small commission if you purchase through these links. This never influences which

@@ -2,16 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
-<BaseLayout title="Location & Hours">
+<BaseLayout title="Location">
   <main class="pt-28 pb-24">
     <div class="max-w-6xl mx-auto px-6">
 
       <!-- Header -->
       <div class="max-w-2xl mb-16">
-        <p class="font-body text-xs uppercase tracking-[0.25em] text-sage mb-4">Find Us</p>
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">Find Us</p>
         <h1 class="font-display text-6xl text-navy mb-6">Location</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
           Sage & Serum is a private studio in San Clemente, CA.
+        </p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-16">
@@ -21,16 +22,16 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
           <div>
             <div class="flex items-center gap-4 mb-8">
-              <div class="w-8 h-px bg-sage" />
+              <div class="w-8 h-px bg-teal" />
               <h2 class="font-display text-3xl text-navy">Address</h2>
             </div>
             <div class="space-y-2 font-body text-sm text-navy/70">
               <p class="text-navy font-medium">[Studio Address]</p>
               <p>San Clemente, CA 92672</p>
-              <a
+              
                 href="https://maps.google.com/?q=San+Clemente+CA+92672"
                 target="_blank"
-                class="inline-block mt-4 text-sage hover:text-navy transition-colors underline underline-offset-4 text-sm"
+                class="inline-block mt-4 text-teal hover:text-navy transition-colors underline underline-offset-4 text-sm"
               >
                 Open in Google Maps →
               </a>
@@ -38,23 +39,23 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           </div>
 
           <!-- Appointment only callout -->
-          <div class="bg-sage/10 rounded-2xl p-6 border border-sage/20">
+          <div class="bg-blush/40 rounded-2xl p-6 border border-blush">
             <h3 class="font-display text-2xl text-navy mb-2">By Appointment Only</h3>
             <p class="font-body text-sm text-navy/60 leading-relaxed">
               Sage & Serum is a private studio. All visits
               are by appointment only to ensure you receive the intentional experience
               you deserve.
             </p>
-            <a
+            
               href="#book"
-              class="inline-block mt-6 bg-sage text-cream font-body text-sm px-6 py-2.5 rounded-full hover:bg-navy transition-colors"
+              class="inline-block mt-6 bg-teal text-cream font-body text-sm px-6 py-2.5 rounded-full hover:bg-teal-dark transition-colors"
             >
               Book an Appointment
             </a>
           </div>
 
           <!-- Parking -->
-          <div class="bg-cream rounded-2xl p-6 border border-sage/10">
+          <div class="bg-cream rounded-2xl p-6 border border-silver">
             <h3 class="font-display text-xl text-navy mb-2">Parking & Access</h3>
             <p class="font-body text-sm text-navy/60 leading-relaxed">
               Street parking is available nearby. The studio is a short walk from the
@@ -67,10 +68,10 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         <!-- Map placeholder -->
         <div class="space-y-4">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-8 h-px bg-sage" />
+            <div class="w-8 h-px bg-teal" />
             <h2 class="font-display text-3xl text-navy">Getting Here</h2>
           </div>
-          <div class="aspect-[4/3] rounded-2xl bg-sage-light/20 border border-sage/10 overflow-hidden flex items-center justify-center">
+          <div class="aspect-[4/3] rounded-2xl bg-blush/20 border border-silver overflow-hidden flex items-center justify-center">
             <p class="font-body text-sm text-navy/30">Map embed coming soon</p>
           </div>
           <p class="font-body text-xs text-navy/40">
