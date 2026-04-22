@@ -6,25 +6,41 @@ const categories = [
   {
     name: 'Facials',
     services: [
-      { title: 'Custom Facial', description: 'A fully personalized treatment addressing your skin\'s current needs — from deep cleansing to targeted serums and massage.', duration: '60 min' },
-      { title: 'Express Facial', description: 'A focused, results-driven treatment perfect for a skin reset when time is limited.', duration: '30 min' },
-      { title: 'Back Facial', description: 'All the benefits of a custom facial applied to the back — ideal for congestion, breakouts, or dry skin.', duration: '45 min' },
+      {
+        title: 'Essential Facial',
+        description: 'Cleanse, exfoliate, extract (if needed), scalp massage, mask, cream, SPF.',
+        duration: '60 min — $130',
+      },
+      {
+        title: 'Pregnancy Facial',
+        description: 'Cleanse, light exfoliation using brush technique, extractions (if needed), cream mask, cream.',
+        duration: '60 min — $130',
+      },
+      {
+        title: 'Organic Facial',
+        description: 'Cleanse, exfoliate or AHA peel, extract (if needed), facial massage, mask, cream, SPF.',
+        duration: '75 min — $150',
+      },
+      {
+        title: 'Beyond Essential Facial',
+        description: 'Cleanse, exfoliate or AHA peel, extract (if needed), LED red light therapy, facial massage, sheet mask or cream mask, under eye treatment, cream, SPF.',
+        duration: '90 min — $175',
+      },
     ]
   },
   {
     name: 'Advanced Treatments',
     services: [
-      { title: 'Chemical Peel', description: 'Targeted exfoliation to resurface skin, address pigmentation, and reveal a clearer, smoother complexion.', duration: '45 min' },
-      { title: 'Red Light Therapy', description: 'Non-invasive light therapy to stimulate collagen production, reduce inflammation, and accelerate healing.', duration: '30 min' },
-      { title: 'Microdermabrasion', description: 'Mechanical exfoliation to buff away dead skin cells and stimulate circulation for a brighter tone.', duration: '45 min' },
-    ]
-  },
-  {
-    name: 'Enhancements',
-    services: [
-      { title: 'Brow Tint', description: 'Define and shape your brows with long-lasting clean tint perfectly matched to your coloring.', duration: '20 min' },
-      { title: 'Lash Tint', description: 'Deepen and define your natural lashes without mascara — great for low-maintenance days.', duration: '20 min' },
-      { title: 'Brow & Lash Tint', description: 'The full brow and lash experience combined into one appointment.', duration: '30 min' },
+      {
+        title: 'LED Light Therapy',
+        description: 'LightStim Pro Panel for anti-aging. Can be a stand alone treatment or add on to any facial.',
+        duration: 'Add-on — $40',
+      },
+      {
+        title: 'Dermaplaning',
+        description: 'Coming soon.',
+        duration: 'Coming Soon',
+      },
     ]
   },
 ]
@@ -37,7 +53,7 @@ const categories = [
       <!-- Header -->
       <div class="max-w-2xl mb-16">
         <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">What We Offer</p>
-        <h1 class="font-display text-6xl text-navy mb-6">Service Menu</h1>
+        <h1 class="font-display text-6xl text-navy mb-6">Facial Menu</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
           Every service at Sage & Serum is built around your needs.
           Browse the menu below and reach out with any questions before booking.
@@ -52,7 +68,7 @@ const categories = [
               <div class="w-8 h-px bg-teal" />
               <h2 class="font-display text-3xl text-navy">{cat.name}</h2>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
               {cat.services.map(s => (
                 <ServiceCard title={s.title} description={s.description} duration={s.duration} />
               ))}
@@ -61,14 +77,43 @@ const categories = [
         ))}
       </div>
 
+      <!-- LightStim callout
+      <div class="mt-16 bg-silver/30 rounded-3xl p-8 border border-silver flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <h3 class="font-display text-2xl text-navy mb-2">LightStim Pro Panel</h3>
+          <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
+            Sage & Serum uses the LightStim Pro Panel for LED light therapy treatments — clinically proven for anti-aging and skin rejuvenation.
+          </p>
+        </div>
+        <a
+          href="https://www.lightstim.com"
+          target="_blank"
+          class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4 whitespace-nowrap"
+        >
+          Learn about LightStim →
+        </a>
+      </div> -->
+
+      <!-- Gift Certificates -->
+      <div class="mt-8 bg-blush/40 rounded-3xl p-8 border border-blush">
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">A Thoughtful Gift</p>
+        <h3 class="font-display text-3xl text-navy mb-2">Gift Certificates Available</h3>
+        <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
+          Give the gift of intentional skincare. Gift certificates are available for any service.
+        </p>
+        <a href="tel:9494165125" class="inline-block mt-6 bg-teal text-cream font-body text-sm px-6 py-2.5 rounded-full hover:bg-teal-dark transition-colors">
+          Call or Text to Purchase
+        </a>
+      </div>
+
       <!-- CTA -->
-      <div class="mt-20 bg-blush/40 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="mt-8 bg-cream rounded-3xl p-10 border border-silver flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 class="font-display text-3xl text-navy mb-2">Ready to book?</h3>
-          <p class="font-body text-sm text-navy/60">By appointment only.</p>
+          <p class="font-body text-sm text-navy/60">By appointment only - call or text Dawn at 949-416-5125.</p>
         </div>
-        <a href="#book" class="bg-teal text-cream font-body text-sm px-8 py-3 rounded-full hover:bg-teal-dark transition-colors whitespace-nowrap">
-          Book a Service
+        <a href="tel:9494165125" class="bg-teal text-cream font-body text-sm px-8 py-3 rounded-full hover:bg-teal-dark transition-colors whitespace-nowrap">
+          Call or Text Now
         </a>
       </div>
 

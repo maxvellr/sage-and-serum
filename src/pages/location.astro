@@ -11,7 +11,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">Find Us</p>
         <h1 class="font-display text-6xl text-navy mb-6">Location</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
-          Sage & Serum is a private studio in San Clemente, CA.
+          Sage & Serum is a private skincare studio located in North Beach San Clemente, CA.
         </p>
       </div>
 
@@ -25,11 +25,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
               <div class="w-8 h-px bg-teal" />
               <h2 class="font-display text-3xl text-navy">Address</h2>
             </div>
-            <div class="space-y-2 font-body text-sm text-navy/70">
-              <p class="text-navy font-medium">[Studio Address]</p>
+            <div class="space-y-1 font-body text-sm text-navy/70">
+              <p class="text-navy font-medium">Sage & Serum LLC</p>
+              <p>1502 N. El Camino Real, Suite A</p>
               <p>San Clemente, CA 92672</p>
-              
-                href="https://maps.google.com/?q=San+Clemente+CA+92672"
+              <p class="text-navy/50 italic text-xs pt-1">Located inside Golden Hour Chiropractic</p>
+              <a
+                href="https://maps.google.com/?q=1502+N+El+Camino+Real+San+Clemente+CA+92672"
                 target="_blank"
                 class="inline-block mt-4 text-teal hover:text-navy transition-colors underline underline-offset-4 text-sm"
               >
@@ -42,15 +44,14 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           <div class="bg-blush/40 rounded-2xl p-6 border border-blush">
             <h3 class="font-display text-2xl text-navy mb-2">By Appointment Only</h3>
             <p class="font-body text-sm text-navy/60 leading-relaxed">
-              Sage & Serum is a private studio. All visits
-              are by appointment only to ensure you receive the intentional experience
-              you deserve.
+              All visits are by appointment only. Please call or text Dawn at
+              <a href="tel:9494165125" class="text-teal hover:text-navy transition-colors">949-416-5125</a>.
             </p>
             <a
-              href="#book"
+              href="tel:9494165125"
               class="inline-block mt-6 bg-teal text-cream font-body text-sm px-6 py-2.5 rounded-full hover:bg-teal-dark transition-colors"
             >
-              Book an Appointment
+              Call or Text to Book
             </a>
           </div>
 
@@ -58,24 +59,27 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           <div class="bg-cream rounded-2xl p-6 border border-silver">
             <h3 class="font-display text-xl text-navy mb-2">Parking & Access</h3>
             <p class="font-body text-sm text-navy/60 leading-relaxed">
-              Street parking is available nearby. The studio is a short walk from the
-              San Clemente oceanfront.
+              Parking is ample in the parking lot. Located in North Beach, Sage & Serum is a short walk to area restaurants, coffee shops, and the iconic San Clemente oceanfront.
             </p>
           </div>
 
         </div>
 
-        <!-- Map placeholder -->
+        <!-- Area photo placeholder -->
         <div class="space-y-4">
           <div class="flex items-center gap-4 mb-8">
             <div class="w-8 h-px bg-teal" />
-            <h2 class="font-display text-3xl text-navy">Getting Here</h2>
+            <h2 class="font-display text-3xl text-navy">The Neighborhood</h2>
           </div>
-          <div class="aspect-[4/3] rounded-2xl bg-blush/20 border border-silver overflow-hidden flex items-center justify-center">
-            <p class="font-body text-sm text-navy/30">Map embed coming soon</p>
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-silver bg-sage-light/20">
+            <img
+              src="https://placehold.co/800x600/AFBDB0/2D4A52?text=North+Beach+San+Clemente"
+              alt="North Beach San Clemente"
+              class="w-full h-full object-cover"
+            />
           </div>
           <p class="font-body text-xs text-navy/40">
-            Exact address provided in your booking confirmation.
+            Located inside Golden Hour Chiropractic, Suite A — just steps from the San Clemente oceanfront.
           </p>
         </div>
 
