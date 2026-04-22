@@ -22,9 +22,9 @@ const links = [
     <!-- Nav links -->
     <div>
       <p class="font-body text-xs uppercase tracking-[0.25em] text-sage-mid mb-6">Navigation</p>
-      <ul class="space-y-3">
+      <ul class="space-y-3 grid md:grid-cols-2">
         {links.map(link => (
-          <li>
+          <li class="">
             <a href={link.href} class="font-body text-sm text-cream/70 hover:text-cream transition-colors">
               {link.label}
             </a>
@@ -42,12 +42,12 @@ const links = [
           Call or Text: 949-416-5125
         </a>
       </div>
-      <a
+      <!-- <a
         href="tel:9494165125"
         class="inline-block mt-8 border border-silver/40 text-cream font-body text-sm px-5 py-2.5 rounded-full hover:bg-cream/10 transition-colors"
       >
         Book Now
-      </a>
+      </a> -->
     </div>
 
   </div>
