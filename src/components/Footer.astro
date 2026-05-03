@@ -11,12 +11,13 @@ const links = [
 <footer class="bg-sage-dark text-cream py-16">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
 
-    <!-- Brand -->
-    <div class="space-y-2">
+    <!-- Brand — last on mobile, first on desktop -->
+    <div class="space-y-2 order-last md:order-first">
       <img
         src="/sage-and-serum/images/script-white.png"
         alt="Sage & Serum"
-        class="h-9 w-auto">
+        class="h-9 ml-[-4px] w-auto"
+      />
       <p class="font-body text-xs text-cream/30">© 2025 Sage & Serum LLC. All rights reserved.</p>
     </div>
 
@@ -25,7 +26,7 @@ const links = [
       <p class="font-body text-xs uppercase tracking-[0.25em] text-sage-mid mb-6">Navigation</p>
       <ul class="space-y-3 grid md:grid-cols-2">
         {links.map(link => (
-          <li class="">
+          <li>
             <a href={link.href} class="font-body text-sm text-cream/70 hover:text-cream transition-colors">
               {link.label}
             </a>
@@ -43,12 +44,6 @@ const links = [
           Call or Text: 949-416-5125
         </a>
       </div>
-      <!-- <a
-        href="tel:9494165125"
-        class="inline-block mt-8 border border-silver/40 text-cream font-body text-sm px-5 py-2.5 rounded-full hover:bg-cream/10 transition-colors"
-      >
-        Book Now
-      </a> -->
     </div>
 
   </div>
