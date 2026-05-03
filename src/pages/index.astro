@@ -1,10 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Hero from '../components/Hero.astro'
-import ServicesPreview from '../components/ServicesPreview.astro'
 ---
 
 <BaseLayout title="Home">
-  <Hero />
-  <ServicesPreview />
+  <main class="relative min-h-screen flex flex-col items-center justify-center bg-cream px-6 text-center overflow-hidden">
+
+    <!-- Leaf background -->
+    <img
+      src="/sage-and-serum/images/leaf-background.png"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover mix-blend-multiply pointer-events-none"
+    />
+
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center">
+
+      <!-- Script logo -->
+      <div class="w-full max-w-sm mb-3">
+        <img
+          src="/sage-and-serum/images/logo-crop.png"
+          alt="Sage & Serum"
+          class="w-full h-auto"
+        />
+      </div>
+
+      <!-- Pill -->
+      <div class="mb-12">
+        <img
+          src="/sage-and-serum/images/logo-pill.png"
+          alt="Essential Skin Studio"
+          class="h-7 w-auto mx-auto"
+        />
+      </div>
+
+    </div>
+
+  </main>
 </BaseLayout>

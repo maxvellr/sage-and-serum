@@ -11,12 +11,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">Our Story</p>
         <h1 class="font-display text-6xl text-navy mb-6">About Sage & Serum</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
-          Grounded in results driven, clean formulations and tailored to the individual. Sage & Serum is a boutique skincare studio designed for you.
+          Sage & Serum was inspired by the belief that skin health and wellness should be accessible to everybody. Rooted in clean, sustainable, results oriented, certified skincare and tailored to each individual, Sage & Serum is an inclusive skin care studio curated to genuinely care for you.
         </p>
       </div>
 
       <!-- Two col: image + bio -->
-      <div class="grid md:grid-cols-2 gap-16 items-start mb-24">
+      <div class="grid md:grid-cols-2 gap-16 items-start mb-16">
         <div class="aspect-[3/4] rounded-3xl bg-blush/40 overflow-hidden">
           <img
             src="https://placehold.co/600x800/E4DBD2/2D4A52?text=Dawn"
@@ -27,22 +27,19 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         <div class="space-y-5">
           <h2 class="font-display text-4xl text-navy">Hi, I'm <em>Dawn</em></h2>
           <p class="font-body text-sm text-navy/60 leading-relaxed">
-            A second generation Southern California native, I was raised in a small community within the Ventura County Line that nestles against the base of the Santa Monica mountains. Every evening the coastal fog would roll in over Mt Boney to create the most serene backdrop.
+            Born and raised in Southern California, I grew up in a small community within the Ventura County Line that nestles against the base of the Santa Monica mountains. Every evening the coastal fog would roll in over Boney Mountain Peak to create the most serene backdrop. I often look back on growing up in this very special surf community with great appreciation and awe.
           </p>
           <p class="font-body text-sm text-navy/60 leading-relaxed">
-            After 25 years of living in the hills of my beloved Northeast Los Angeles and working one on one with clients as a Functional Medicine Certified Health Coach, I felt the California coast call me back home. In 2022, I decided to take my years of professional experience and blend it with my lifelong interest in skincare, and became a licensed skincare professional. 2024 brought me to South Orange County and back to the coastal influence and surf community I had been missing.
+            After 25 years of living in the hills of my beloved Northeast Los Angeles (NELA), and working one on one coaching clients to make therapeutic lifestyle change, I felt the California coast I love so much call me back. In 2022, I decided to take my years of professional experience and blend it with my lifelong interest in skin care, and became a licensed esthetician. 2024 brought me to South Orange County and back to the coastal influence and surf community I had been longing to reconnect with.
           </p>
           <p class="font-body text-sm text-navy/60 leading-relaxed">
-            I have always felt very passionate about making a positive difference in the lives of others, and I'm pleased my skincare practice allows me to carry this deeply rooted intention forward.
+            I have always felt very passionate about making a positive difference in the lives of others and am pleased my skin care practice allows me to carry this deeply held intention forward.
           </p>
           <p class="font-body text-sm text-navy/60 leading-relaxed">
-            Outside of work, my husband and I enjoy spending time with our two kitties, travel, cooking, snow skiing, bike riding and paddle boarding. For me, feeling rooted in nature brings a great sense of peace. On weekends, you will often find me dancing barefoot around the house listening to my vinyl record collection.
-          </p>
-          <p class="font-body text-sm text-navy/60 leading-relaxed italic">
-            No two people are alike, therefore no two skins are alike.
+            Outside of work, my husband and I enjoy spending time with our two kitties, traveling the world, cooking healthy meals, snow skiing, hiking and paddle boarding. For me, connecting to nature brings a great sense of peace, so I strive to spend time outdoors everyday. On weekends, you will often find me dancing barefoot around the house listening to my vinyl record collection.
           </p>
           <div class="pt-2 flex flex-wrap gap-3">
-            {['Licensed Skincare Professional', 'EcoCert Trained', 'Functional Medicine Health Coach'].map(tag => (
+            {['Licensed Esthetician', 'EcoCert Trained', 'Functional Medicine Health Coach'].map(tag => (
               <span class="font-body text-xs text-teal border border-teal/30 rounded-full px-4 py-1.5">
                 {tag}
               </span>
@@ -50,27 +47,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           </div>
           <div class="pt-2 border-t border-silver">
             <p class="font-body text-sm text-navy font-medium mt-4">Dawn Kratofil</p>
-            <p class="font-body text-xs text-navy/50">Founder & Licensed Skincare Professional</p>
-            <a href="tel:9494165125" class="font-body text-xs text-teal hover:text-navy transition-colors">
-              Call or Text: 949-416-5125
+            <p class="font-body text-xs text-navy/50">Founder & Licensed Esthetician</p>
+            <a href="mailto:dawn@sageandserumskin.com" class="font-body text-xs text-teal hover:text-navy transition-colors">
+              dawn@sageandserumskin.com
             </a>
           </div>
         </div>
-      </div>
-
-      <!-- Values strip -->
-      <div class="grid sm:grid-cols-3 gap-8 border-t border-sage-mid/30 pt-16">
-        {[
-          { heading: 'Clean Ingredients', body: 'Every product used in the studio meets strict clean beauty standards — effective, safe, and kind to the skin.' },
-          { heading: 'Personalized Care', body: 'No two skins are alike. Every treatment starts with a thorough consultation to understand your unique needs.' },
-          { heading: 'A Calm Space', body: 'The studio is designed to be a genuine retreat — quiet, unhurried, and entirely focused on you.' },
-        ].map(v => (
-          <div class="space-y-3">
-            <div class="w-8 h-px bg-teal" />
-            <h3 class="font-display text-2xl text-navy">{v.heading}</h3>
-            <p class="font-body text-sm text-navy/60 leading-relaxed">{v.body}</p>
-          </div>
-        ))}
       </div>
 
     </div>
