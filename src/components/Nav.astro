@@ -1,8 +1,14 @@
 ---
 const links = [
-  // { href: '/sage-and-serum/', label: 'Home' },
-  { href: '/sage-and-serum/menu', label: 'Services' },
+  { href: '/sage-and-serum/', label: 'Home' },
   { href: '/sage-and-serum/about', label: 'About' },
+  {
+    label: 'Services',
+    dropdown: [
+      { href: '/sage-and-serum/menu', label: 'Facials' },
+      { href: '/sage-and-serum/spray-tan', label: 'Spray Tan' },
+    ]
+  },
   { href: '/sage-and-serum/location', label: 'Location' },
   { href: '/sage-and-serum/affiliates', label: 'Affiliates' },
 ]
@@ -11,44 +17,70 @@ const links = [
 <nav class="fixed top-0 w-full z-50 bg-cream/95 backdrop-blur-sm border-b border-sage-mid/30">
   <div class="max-w-6xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
 
-  <!-- Logo left -->
-  <a href="/sage-and-serum/" class="flex items-center">
-    <img
-      src="/sage-and-serum/images/logo-crop.png"
-      alt="Sage & Serum"
-      class="h-9 pt-1 w-auto"
-    />
-  </a>
+    <!-- Logo -->
+    <a href="/sage-and-serum/" class="flex items-center">
+      <img
+        src="/sage-and-serum/images/logo-crop.png"
+        alt="Sage & Serum"
+        class="h-9 pt-1 w-auto"
+      />
+    </a>
 
-  <!-- Links center -->
-  <ul class="hidden md:flex items-center justify-center gap-8">
-    {links.map(link => (
-      <li>
-        <a href={link.href} class="font-body text-sm text-navy/60 hover:text-navy transition-colors tracking-wide">
-          {link.label}
-        </a>
-      </li>
-    ))}
-  </ul>
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center justify-center gap-8">
+      {links.map(link => (
+        <li class="relative group">
+          {link.dropdown ? (
+            <>
+              <button class="font-body text-sm text-navy/60 hover:text-navy transition-colors tracking-wide flex items-center gap-1">
+                {link.label}
+                <svg class="w-3 h-3 mt-px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block">
+                <ul class="bg-cream border border-sage-mid/20 rounded-xl shadow-sm py-2 min-w-[140px]">
+                  {link.dropdown.map(item => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class="block px-4 py-2 font-body text-sm text-navy/60 hover:text-navy hover:bg-sage-mid/10 transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <a href={link.href} class="font-body text-sm text-navy/60 hover:text-navy transition-colors tracking-wide">
+              {link.label}
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
 
-  <!-- Empty right col to balance -->
-  <div class="hidden md:block" />
+    <!-- Empty right col -->
+    <div class="hidden md:block" />
 
-  <!-- Hamburger (mobile only) -->
-  <div class="md:hidden flex justify-end col-start-3">
-    <button
-      id="menu-toggle"
-      class="flex flex-col gap-1 p-2 outline-none focus:outline-none"
-      aria-label="Toggle menu"
-    >
-      <span class="hamburger-line block w-5 h-px bg-navy transition-all duration-300" />
-      <span class="hamburger-line block w-5 h-px bg-navy transition-all duration-300" />
-      <span class="hamburger-line block w-5 h-px bg-navy transition-all duration-300" />
-    </button>
+    <!-- Hamburger -->
+    <div class="md:hidden flex justify-end col-start-3">
+      <button
+        id="menu-toggle"
+        class="flex flex-col gap-1 p-2 outline-none focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <span class="hamburger-line block w-5 h-px bg-navy transition-all duration-300" />
+        <span class="hamburger-line block w-5 h-px bg-navy transition-all duration-300" />
+        <span class="hamburger-line block w-5 h-px bg-navy transition-all duration-300" />
+      </button>
+    </div>
+
   </div>
 
-</div>
-
+  <!-- Mobile menu -->
   <div
     id="mobile-menu"
     class="md:hidden hidden flex-col px-6 pb-6 pt-2 bg-cream/95 backdrop-blur-sm border-t border-sage-mid/20"
@@ -56,9 +88,23 @@ const links = [
     <ul class="space-y-4">
       {links.map(link => (
         <li>
-          <a href={link.href} class="font-body text-sm text-navy/60 hover:text-navy transition-colors tracking-wide block py-1">
-            {link.label}
-          </a>
+          {link.dropdown ? (
+            <div class="space-y-2">
+              <p class="font-body text-sm text-navy/40 tracking-wide">Services</p>
+              {link.dropdown.map(item => (
+                <a
+                  href={item.href}
+                  class="block pl-3 font-body text-sm text-navy/60 hover:text-navy transition-colors py-1"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          ) : (
+            <a href={link.href} class="font-body text-sm text-navy/60 hover:text-navy transition-colors tracking-wide block py-1">
+              {link.label}
+            </a>
+          )}
         </li>
       ))}
     </ul>

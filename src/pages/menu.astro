@@ -35,12 +35,12 @@ const categories = [
         title: 'LED Light Therapy',
         description: 'LightStim Pro Panel for anti-aging. Can be a stand alone treatment or add on to any facial.',
         duration: 'Add-on — $40',
-      },
-      {
-        title: 'Spray Tan',
-        description: 'A flawless, natural-looking tan tailored to your skin tone.',
-        duration: '$70',
-      },
+      }
+      // {
+      //   title: 'Spray Tan',
+      //   description: 'A flawless, natural looking tan formulated to match all skin tones.',
+      //   duration: '$75 — Summer Special $65 through Aug 1',
+      // },
     ]
   },
 ]
@@ -51,12 +51,19 @@ const categories = [
     <div class="max-w-6xl mx-auto px-6">
 
       <!-- Header -->
-      <div class="max-w-2xl mb-16">
-        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">Essential Skin Studio Offerings</p>
+      <div class="max-w-2xl mb-8">
         <h1 class="font-display text-6xl text-navy mb-6">Facial Menu</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
           Every service at Sage & Serum is built around your needs.
           Browse the menu below and reach out with any questions before booking.
+        </p>
+      </div>
+      <!-- Facial Special -->
+      <div class="my-8 bg-sage-warm/20 rounded-3xl p-8 border border-sage-warm/40">
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">Limited Time Offer</p>
+        <h3 class="font-display text-3xl text-navy mb-2">Facial Special</h3>
+        <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
+          Now through June 30, 2026 — add LightStim LED Light Therapy to any facial, a $40 value. Exclusions may apply.
         </p>
       </div>
 
@@ -76,7 +83,6 @@ const categories = [
           </div>
         ))}
       </div>
-
       <!-- LightStim callout
       <div class="mt-16 bg-silver/30 rounded-3xl p-8 border border-silver flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
@@ -112,9 +118,9 @@ const categories = [
           <h3 class="font-display text-3xl text-navy mb-2">Ready to book?</h3>
           <p class="font-body text-sm text-navy/60">By appointment only — call or text Dawn at 949-416-5125.</p>
         </div>
-        <a href="tel:9494165125" class="bg-teal text-cream font-body text-sm px-8 py-3 rounded-full hover:bg-teal-dark transition-colors whitespace-nowrap">
+        <!-- <a href="tel:9494165125" class="bg-teal text-cream font-body text-sm px-8 py-3 rounded-full hover:bg-teal-dark transition-colors whitespace-nowrap">
           Call or Text Now
-        </a>
+        </a> -->
       </div>
 
     </div>

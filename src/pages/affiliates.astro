@@ -1,24 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const affiliates = [
+const skincare = [
   {
-    name: '[Brand Name]',
-    description: 'Product description here.',
-    category: 'Skincare',
+    name: 'Nelly De Vuyst',
+    description: 'Affiliate link coming soon.',
     url: '#',
   },
+]
+
+const makeup = [
   {
-    name: '[Brand Name]',
-    description: 'Product description here.',
-    category: 'Makeup',
-    url: '#',
+    name: 'Ilia',
+    description: 'Clean, skin-forward makeup that blurs the line between skincare and beauty.',
+    url: 'https://iliabeauty.com',
   },
   {
-    name: '[Brand Name]',
-    description: 'Product description here.',
-    category: 'Tools & Devices',
-    url: '#',
+    name: 'RMS Beauty',
+    description: 'Organic, raw, food-grade ingredients in every product — makeup that nourishes as it beautifies.',
+    url: 'https://rmsbeauty.com',
+  },
+  {
+    name: 'Merit',
+    description: 'Minimalist, clean formulas designed for an effortless, everyday routine.',
+    url: 'https://meritbeauty.com',
+  },
+]
+
+const luxury = [
+  {
+    name: 'Morgan Mabry Makeup Artist',
+    description: 'Blurb coming soon from Morgan.',
+    url: 'https://www.morganmabrymakeup.com',
   },
 ]
 ---
@@ -32,16 +45,16 @@ const affiliates = [
         <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-4">Trusted Brands</p>
         <h1 class="font-display text-6xl text-navy mb-6">Affiliates & Favorites</h1>
         <p class="font-body text-base text-navy/60 leading-relaxed">
-          Everything listed here is something used and believed in. Some links are affiliate links, which means a small commission may be earned at no extra cost to you.
+          Everything listed here is something used and believed in — products and brands that align with the Sage & Serum commitment to clean skincare. Some links are affiliate links, which means a small commission may be earned at no extra cost to you.
         </p>
       </div>
 
       <!-- LightStim callout -->
-      <div class="bg-silver/30 rounded-2xl p-6 border border-silver flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-12">
+      <div class="bg-silver/30 rounded-2xl p-6 border border-silver flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-16">
         <div>
           <p class="font-body text-xs uppercase tracking-[0.2em] text-teal mb-1">In Studio</p>
           <h3 class="font-display text-2xl text-navy mb-1">LightStim Pro Panel</h3>
-          <p class="font-body text-sm text-navy/60">The LED light therapy device used in every applicable treatment at Sage & Serum.</p>
+          <p class="font-body text-sm text-navy/60">LED red light therapy used in every applicable treatment at Sage & Serum.</p>
         </div>
         <a
           href="https://www.lightstim.com"
@@ -52,32 +65,67 @@ const affiliates = [
         </a>
       </div>
 
-      <!-- Cards -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-        {affiliates.map(a => (
-          <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
-            <div>
-              <span class="font-body text-xs uppercase tracking-[0.2em] text-teal">{a.category}</span>
-            </div>
-            <div class="flex-1 space-y-2">
+      <!-- Skincare -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-8 h-px bg-teal" />
+          <h2 class="font-display text-3xl text-navy">Skincare</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skincare.map(a => (
+            <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
               <h3 class="font-display text-2xl text-navy">{a.name}</h3>
-              <p class="font-body text-sm text-navy/60 leading-relaxed">{a.description}</p>
+              <p class="font-body text-sm text-navy/60 leading-relaxed flex-1">{a.description}</p>
+              <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+                Shop now →
+              </a>
             </div>
-            <a
-              href={a.url}
-              target="_blank"
-              class="inline-block font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4"
-            >
-              Shop now →
-            </a>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <!-- Makeup -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-8 h-px bg-teal" />
+          <h2 class="font-display text-3xl text-navy">Makeup — Favorites</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {makeup.map(a => (
+            <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
+              <h3 class="font-display text-2xl text-navy">{a.name}</h3>
+              <p class="font-body text-sm text-navy/60 leading-relaxed flex-1">{a.description}</p>
+              <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+                Shop now →
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Luxury Beauty -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-8 h-px bg-teal" />
+          <h2 class="font-display text-3xl text-navy">Luxury Beauty — Favorites</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {luxury.map(a => (
+            <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
+              <h3 class="font-display text-2xl text-navy">{a.name}</h3>
+              <p class="font-body text-sm text-navy/60 leading-relaxed flex-1">{a.description}</p>
+              <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+                Visit site →
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
 
       <!-- Disclosure -->
       <div class="border-t border-silver pt-10">
         <p class="font-body text-xs text-navy/40 max-w-2xl leading-relaxed">
-          Disclosure: Some links on this page are affiliate links. Sage & Serum may earn a small commission if you purchase through these links. This never influences which products are recommended, only brands that are trusted make this list.
+          Disclosure: Some links on this page are affiliate links. Sage & Serum may earn a small commission if you purchase through these links. This never influences which products are recommended — only brands that are trusted make this list.
         </p>
       </div>
 
