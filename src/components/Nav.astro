@@ -15,10 +15,10 @@ const links = [
 ---
 
 <nav class="fixed top-0 w-full z-50 bg-cream/95 backdrop-blur-sm border-b border-sage-mid/30">
-  <div class="max-w-6xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
 
     <!-- Logo -->
-    <a href="/sage-and-serum/" class="flex items-center">
+    <a href="/sage-and-serum/" class="flex items-center flex-shrink-0">
       <img
         src="/sage-and-serum/images/logo-crop.png"
         alt="Sage & Serum"
@@ -26,8 +26,8 @@ const links = [
       />
     </a>
 
-    <!-- Desktop links -->
-    <ul class="hidden md:flex items-center justify-center gap-8">
+    <!-- Desktop links — truly centered -->
+    <ul class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
       {links.map(link => (
         <li class="relative group">
           {link.dropdown ? (
@@ -62,11 +62,8 @@ const links = [
       ))}
     </ul>
 
-    <!-- Empty right col -->
-    <div class="hidden md:block" />
-
     <!-- Hamburger -->
-    <div class="md:hidden flex justify-end col-start-3">
+    <div class="md:hidden">
       <button
         id="menu-toggle"
         class="flex flex-col gap-1 p-2 outline-none focus:outline-none"
