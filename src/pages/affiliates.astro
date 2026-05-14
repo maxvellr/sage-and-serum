@@ -29,20 +29,20 @@ const makeup = [
 
 const luxury = [
   {
-  name: 'Morgan Mabry — Makeup Artist',
-  image: '/sage-and-serum/images/morgan-mabry.png',
-  description: `<p>A sought-after makeup artist with over 20 years of experience...</p><p>Based in Southern California...</p>`,
-  url: 'https://www.morganmabrymakeup.com',
-  isGilly: false,
-},
+    name: 'Morgan Mabry — Makeup Artist',
+    image: '/sage-and-serum/images/morgan-mabry.png',
+    description: `<p>A sought-after makeup artist with over 20 years of experience, Morgan Mabry brings an impressive New York City career and standout portfolio of credits to her work in natural, elevated beauty for on-camera, special events, and luxury bridal.</p><p>Based in Southern California and available for travel, Morgan creates fresh, radiant looks while delivering a calm, fun and positive client experience.</p>`,
+    url: 'https://www.morganmabrymakeup.com',
+    isGilly: false,
+  },
   {
-  name: 'Gilly Louise Designs',
-  image: '/sage-and-serum/images/gilly-bag.JPEG',
-  description: `<p>Handmade in California — Feminine by Nature, Fabulously Girly by Design.</p><p>Gilly Louise Designs did a collab with Sage & Serum. Shop her beautiful handmade makeup bags and accessories.</p>`,
-  etsy: '#',
-  instagram: '#',
-  isGilly: true,
-},
+    name: 'Gilly Louise Designs',
+    image: '/sage-and-serum/images/gilly-bag.JPEG',
+    description: `<p>Handmade in California — Feminine by Nature, Fabulously Girly by Design.</p><p>Gilly Louise Designs did a collab with Sage & Serum. Shop her beautiful handmade makeup bags and accessories.</p>`,
+    etsy: '#',
+    instagram: '#',
+    isGilly: true,
+  },
 ]
 ---
 
@@ -120,37 +120,77 @@ const luxury = [
           <h2 class="font-display text-3xl text-navy">Luxury Beauty — Favorites</h2>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {luxury.map(a => (
-  <div class="bg-cream rounded-2xl overflow-hidden flex flex-col border border-silver hover:border-sage-mid transition-colors">
-    {a.image && (
-      <div class="h-48 overflow-hidden">
-        <img
-          src={a.image}
-          alt={a.name}
-          class="w-full h-full object-cover object-center"
-        />
-      </div>
-    )}
-    <div class="p-6 flex flex-col gap-4 flex-1">
-      <h3 class="font-display text-2xl text-navy">{a.name}</h3>
-      <div class="font-body text-sm text-navy/60 leading-relaxed flex-1 space-y-3" set:html={a.description} />
-      {a.isGilly ? (
-        <div class="flex gap-4">
-          <a href={a.etsy} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
-            Shop Etsy →
-          </a>
-          <a href={a.instagram} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
-            Instagram →
-          </a>
-        </div>
-      ) : (
-        <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
-          Visit site →
-        </a>
-      )}
-    </div>
-  </div>
-))}
+          {luxury.map((a, i) => (
+            <div
+              class="bg-cream rounded-2xl overflow-hidden flex flex-col border border-silver hover:border-sage-mid transition-colors cursor-pointer"
+              data-modal={`modal-${i}`}
+              onclick={`document.getElementById('modal-${i}').classList.remove('hidden')`}
+            >
+              {a.image && (
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src={a.image}
+                    alt={a.name}
+                    class="w-full h-full object-cover object-center"
+                  />
+                </div>
+              )}
+              <div class="p-6 flex flex-col gap-3 flex-1">
+                <h3 class="font-display text-2xl text-navy">{a.name}</h3>
+                <div class="font-body text-sm text-navy/60 leading-relaxed line-clamp-3" set:html={a.description} />
+                <p class="font-body text-xs text-teal mt-auto">Read more →</p>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              id={`modal-${i}`}
+              class="hidden fixed inset-0 z-50 flex items-center justify-center px-6"
+              onclick="this.classList.add('hidden')"
+            >
+              <div class="absolute inset-0 bg-navy/40 backdrop-blur-sm" />
+              <div
+                class="relative bg-cream rounded-3xl max-w-lg w-full overflow-hidden shadow-xl"
+                onclick="event.stopPropagation()"
+              >
+                {a.image && (
+                  <div class="h-56 overflow-hidden">
+                    <img
+                      src={a.image}
+                      alt={a.name}
+                      class="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                )}
+                <div class="p-8 space-y-4">
+                  <div class="flex items-start justify-between gap-4">
+                    <h3 class="font-display text-3xl text-navy">{a.name}</h3>
+                    <button
+                      class="text-navy/40 hover:text-navy transition-colors text-xl leading-none mt-1"
+                      onclick={`document.getElementById('modal-${i}').classList.add('hidden')`}
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  <div class="font-body text-sm text-navy/60 leading-relaxed space-y-3" set:html={a.description} />
+                  {a.isGilly ? (
+                    <div class="flex gap-4 pt-2">
+                      <a href={a.etsy} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+                        Shop Etsy →
+                      </a>
+                      <a href={a.instagram} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+                        Instagram →
+                      </a>
+                    </div>
+                  ) : (
+                    <a href={a.url} target="_blank" class="inline-block font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4 pt-2">
+                      Visit site →
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
