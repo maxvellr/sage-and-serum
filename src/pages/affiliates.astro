@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 const skincare = [
   {
     name: 'Nelly De Vuyst',
-    description: 'Affiliate link coming soon.',
+    description: '<p>A European skincare line rooted in botanical ingredients and clean formulations. Nelly De Vuyst products are results-driven, EcoCert certified, and used exclusively in Sage & Serum facial treatments.</p>',
     url: '#',
   },
 ]
@@ -12,27 +12,37 @@ const skincare = [
 const makeup = [
   {
     name: 'Ilia',
-    description: 'Clean, skin-forward makeup that blurs the line between skincare and beauty.',
+    description: '<p>Clean, skin-forward makeup that blurs the line between skincare and beauty.</p>',
     url: 'https://iliabeauty.com',
   },
   {
     name: 'RMS Beauty',
-    description: 'Organic, raw, food-grade ingredients in every product — makeup that nourishes as it beautifies.',
+    description: '<p>Organic, raw, food-grade ingredients in every product — makeup that nourishes as it beautifies.</p>',
     url: 'https://rmsbeauty.com',
   },
   {
     name: 'Merit',
-    description: 'Minimalist, clean formulas designed for an effortless, everyday routine.',
-    url: 'https://meritbeauty.com',
+    description: '<p>Minimalist, clean formulas designed for an effortless, everyday routine.</p>',
+    url: 'https://meritsociety.com',
   },
 ]
 
 const luxury = [
   {
-    name: 'Morgan Mabry Makeup Artist',
-    description: 'Blurb coming soon from Morgan.',
-    url: 'https://www.morganmabrymakeup.com',
-  },
+  name: 'Morgan Mabry — Makeup Artist',
+  image: '/sage-and-serum/images/morgan-mabry.png',
+  description: `<p>A sought-after makeup artist with over 20 years of experience...</p><p>Based in Southern California...</p>`,
+  url: 'https://www.morganmabrymakeup.com',
+  isGilly: false,
+},
+  {
+  name: 'Gilly Louise Designs',
+  image: '/sage-and-serum/images/gilly-bag.JPEG',
+  description: `<p>Handmade in California — Feminine by Nature, Fabulously Girly by Design.</p><p>Gilly Louise Designs did a collab with Sage & Serum. Shop her beautiful handmade makeup bags and accessories.</p>`,
+  etsy: '#',
+  instagram: '#',
+  isGilly: true,
+},
 ]
 ---
 
@@ -75,7 +85,7 @@ const luxury = [
           {skincare.map(a => (
             <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
               <h3 class="font-display text-2xl text-navy">{a.name}</h3>
-              <p class="font-body text-sm text-navy/60 leading-relaxed flex-1">{a.description}</p>
+              <div class="font-body text-sm text-navy/60 leading-relaxed flex-1 space-y-3" set:html={a.description} />
               <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
                 Shop now →
               </a>
@@ -94,7 +104,7 @@ const luxury = [
           {makeup.map(a => (
             <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
               <h3 class="font-display text-2xl text-navy">{a.name}</h3>
-              <p class="font-body text-sm text-navy/60 leading-relaxed flex-1">{a.description}</p>
+              <div class="font-body text-sm text-navy/60 leading-relaxed flex-1 space-y-3" set:html={a.description} />
               <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
                 Shop now →
               </a>
@@ -111,14 +121,36 @@ const luxury = [
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {luxury.map(a => (
-            <div class="bg-cream rounded-2xl p-6 flex flex-col gap-4 border border-silver hover:border-sage-mid transition-colors">
-              <h3 class="font-display text-2xl text-navy">{a.name}</h3>
-              <p class="font-body text-sm text-navy/60 leading-relaxed flex-1">{a.description}</p>
-              <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
-                Visit site →
-              </a>
-            </div>
-          ))}
+  <div class="bg-cream rounded-2xl overflow-hidden flex flex-col border border-silver hover:border-sage-mid transition-colors">
+    {a.image && (
+      <div class="h-48 overflow-hidden">
+        <img
+          src={a.image}
+          alt={a.name}
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+    )}
+    <div class="p-6 flex flex-col gap-4 flex-1">
+      <h3 class="font-display text-2xl text-navy">{a.name}</h3>
+      <div class="font-body text-sm text-navy/60 leading-relaxed flex-1 space-y-3" set:html={a.description} />
+      {a.isGilly ? (
+        <div class="flex gap-4">
+          <a href={a.etsy} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+            Shop Etsy →
+          </a>
+          <a href={a.instagram} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+            Instagram →
+          </a>
+        </div>
+      ) : (
+        <a href={a.url} target="_blank" class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4">
+          Visit site →
+        </a>
+      )}
+    </div>
+  </div>
+))}
         </div>
       </div>
 
