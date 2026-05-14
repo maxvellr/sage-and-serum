@@ -2,6 +2,19 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ServiceCard from '../components/ServiceCard.astro'
 
+const featured = [
+  {
+    title: 'Essential Facial',
+    description: 'Cleanse, exfoliate, extract (if needed), scalp massage, mask, serums and SPF to finish.',
+    duration: '60 min — $130',
+  },
+  {
+    title: 'Beyond Essential Facial',
+    description: 'Cleanse, exfoliate or AHA peel, extract (if needed), LED red light therapy, facial massage, sheet mask or cream mask, under eye treatment, serums and SPF to finish.',
+    duration: '90 min — $175',
+  },
+]
+
 const categories = [
   {
     name: 'Facials',
@@ -35,12 +48,7 @@ const categories = [
         title: 'LED Light Therapy',
         description: 'LightStim Pro Panel for anti-aging. Can be a stand alone treatment or add on to any facial.',
         duration: 'Add-on — $40',
-      }
-      // {
-      //   title: 'Spray Tan',
-      //   description: 'A flawless, natural looking tan formulated to match all skin tones.',
-      //   duration: '$75 — Summer Special $65 through Aug 1',
-      // },
+      },
     ]
   },
 ]
@@ -50,24 +58,44 @@ const categories = [
   <main class="pt-28 pb-24">
     <div class="max-w-6xl mx-auto px-6">
 
-      <!-- Header -->
-      <div class="max-w-2xl mb-8">
-        <h1 class="font-display text-6xl text-navy mb-6">Facial Menu</h1>
-        <p class="font-body text-base text-navy/60 leading-relaxed">
-          Every service at Sage & Serum is built around your needs.
-          Browse the menu below and reach out with any questions before booking.
-        </p>
-      </div>
-      <!-- Facial Special -->
-      <div class="my-8 bg-sage-warm/20 rounded-3xl p-8 border border-sage-warm/40">
-        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">Limited Time Offer</p>
-        <h3 class="font-display text-3xl text-navy mb-2">Facial Special</h3>
-        <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
-          Now through June 30, 2026 — add LightStim LED Light Therapy to any facial, a $40 value. Exclusions may apply.
-        </p>
+      <!-- Two col header -->
+      <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+
+        <!-- Left: title + special + featured services -->
+        <div class="space-y-6">
+          <h1 class="font-display text-6xl text-navy">Facial Menu</h1>
+          <p class="font-body text-base text-navy/60 leading-relaxed">
+            Every service at Sage & Serum is built around your needs.
+            Browse the menu below and reach out with any questions before booking.
+          </p>
+          <div class="bg-sage-warm/20 rounded-2xl p-6 border border-sage-warm/40">
+            <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-2">Limited Time Offer</p>
+            <h3 class="font-display text-2xl text-navy mb-1">Facial Special</h3>
+            <p class="font-body text-sm text-navy/60 leading-relaxed">
+              Now through June 30, 2026 — add LightStim LED Light Therapy to any facial, a $40 value. Exclusions may apply.
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-2">
+            <div class="w-8 h-px bg-teal" />
+            <h2 class="font-display text-3xl text-navy">Featured</h2>
+          </div>
+          {featured.map(s => (
+            <ServiceCard title={s.title} description={s.description} duration={s.duration} />
+          ))}
+        </div>
+
+        <!-- Right: photo -->
+        <div class="rounded-3xl overflow-hidden border border-silver h-full min-h-[500px]">
+          <img
+            src="/sage-and-serum/images/facial.JPEG"
+            alt="Facial Room at Sage & Serum"
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+
       </div>
 
-      <!-- Categories -->
+      <!-- Full menu -->
       <div class="space-y-16">
         {categories.map(cat => (
           <div>
@@ -75,7 +103,7 @@ const categories = [
               <div class="w-8 h-px bg-teal" />
               <h2 class="font-display text-3xl text-navy">{cat.name}</h2>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div class="grid sm:grid-cols-2 gap-6">
               {cat.services.map(s => (
                 <ServiceCard title={s.title} description={s.description} duration={s.duration} />
               ))}
@@ -83,44 +111,13 @@ const categories = [
           </div>
         ))}
       </div>
-      <!-- LightStim callout
-      <div class="mt-16 bg-silver/30 rounded-3xl p-8 border border-silver flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <h3 class="font-display text-2xl text-navy mb-2">LightStim Pro Panel</h3>
-          <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
-            Sage & Serum uses the LightStim Pro Panel for LED light therapy treatments — clinically proven for anti-aging and skin rejuvenation.
-          </p>
-        </div>
-        <a
-          href="https://www.lightstim.com"
-          target="_blank"
-          class="font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4 whitespace-nowrap"
-        >
-          Learn about LightStim →
-        </a>
-      </div> -->
-
-      <!-- Gift Certificates -->
-      <!-- <div class="mt-8 bg-blush/40 rounded-3xl p-8 border border-blush">
-        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">A Thoughtful Gift</p>
-        <h3 class="font-display text-3xl text-navy mb-2">Gift Certificates Available</h3>
-        <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
-          Give the gift of intentional skincare. Gift certificates are available for any service — perfect for birthdays, holidays, or just because.
-        </p>
-        <a href="tel:9494165125" class="inline-block mt-6 bg-teal text-cream font-body text-sm px-6 py-2.5 rounded-full hover:bg-teal-dark transition-colors">
-          Call or Text to Purchase
-        </a>
-      </div> -->
 
       <!-- CTA -->
-      <div class="mt-8 bg-cream rounded-3xl p-10 border border-silver flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="font-display text-3xl text-navy mb-2">Ready to book?</h3>
-          <p class="font-body text-sm text-navy/60">By appointment only — call or text Dawn at 949-416-5125.</p>
-        </div>
-        <!-- <a href="tel:9494165125" class="bg-teal text-cream font-body text-sm px-8 py-3 rounded-full hover:bg-teal-dark transition-colors whitespace-nowrap">
-          Call or Text Now
-        </a> -->
+      <div class="mt-8 bg-cream rounded-3xl p-10 border border-silver">
+        <p class="font-body text-sm text-navy/60">
+          All services are by appointment only — please call or text Dawn to schedule at
+          <a href="tel:9494165125" class="text-teal hover:text-navy transition-colors">949-416-5125</a>.
+        </p>
       </div>
 
     </div>
