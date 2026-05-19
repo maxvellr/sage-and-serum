@@ -2,19 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ServiceCard from '../components/ServiceCard.astro'
 
-const featured = [
-  {
-    title: 'Essential Facial',
-    description: 'Cleanse, exfoliate, extract (if needed), scalp massage, mask, serums and SPF to finish.',
-    duration: '60 min — $130',
-  },
-  {
-    title: 'Beyond Essential Facial',
-    description: 'Cleanse, exfoliate or AHA peel, extract (if needed), LED red light therapy, facial massage, sheet mask or cream mask, under eye treatment, serums and SPF to finish.',
-    duration: '90 min — $175',
-  },
-]
-
 const categories = [
   {
     name: 'Facials',
@@ -55,47 +42,38 @@ const categories = [
 ---
 
 <BaseLayout title="Services">
-  <main class="pt-28 pb-24">
+  <main class="pt-20 pb-24">
+
+    <!-- Full width banner -->
+    <div class="w-full h-96 overflow-hidden mb-12">
+      <img
+        src="/sage-and-serum/images/facial_room.jpg"
+        alt="Facial Room at Sage & Serum"
+        class="w-full h-full object-cover object-center"
+      />
+    </div>
+
     <div class="max-w-6xl mx-auto px-6">
 
-      <!-- Two col header -->
-      <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
-
-        <!-- Left: title + special + featured services -->
-        <div class="space-y-6">
-          <h1 class="font-display text-6xl text-navy">Facial Menu</h1>
-          <p class="font-body text-base text-navy/60 leading-relaxed">
-            Every service at Sage & Serum is built around your needs.
-            Browse the menu below and reach out with any questions before booking.
-          </p>
-          <div class="bg-sage-warm/20 rounded-2xl p-6 border border-sage-warm/40">
-            <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-2">Limited Time Offer</p>
-            <h3 class="font-display text-2xl text-navy mb-1">Facial Special</h3>
-            <p class="font-body text-sm text-navy/60 leading-relaxed">
-              Now through June 30, 2026 — add LightStim LED Light Therapy to any facial, a $40 value. Exclusions may apply.
-            </p>
-          </div>
-          <div class="flex items-center gap-4 pt-2">
-            <div class="w-8 h-px bg-teal" />
-            <h2 class="font-display text-3xl text-navy">Featured</h2>
-          </div>
-          {featured.map(s => (
-            <ServiceCard title={s.title} description={s.description} duration={s.duration} />
-          ))}
-        </div>
-
-        <!-- Right: photo -->
-        <div class="rounded-3xl overflow-hidden border border-silver h-full min-h-[500px]">
-          <img
-            src="/sage-and-serum/images/facial.JPEG"
-            alt="Facial Room at Sage & Serum"
-            class="w-full h-full object-cover object-top"
-          />
-        </div>
-
+      <!-- Header -->
+      <div class="max-w-2xl mb-8">
+        <h1 class="font-display text-6xl text-navy mb-6">Facial Menu</h1>
+        <p class="font-body text-base text-navy/60 leading-relaxed">
+          Every service at Sage & Serum is built around your needs.
+          Browse the menu below and reach out with any questions before booking.
+        </p>
       </div>
 
-      <!-- Full menu -->
+      <!-- Facial Special -->
+      <div class="my-8 bg-sage-warm/20 rounded-3xl p-8 border border-sage-warm/40">
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">Limited Time Offer</p>
+        <h3 class="font-display text-3xl text-navy mb-2">Facial Special</h3>
+        <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
+          Now through June 30, 2026 — add LightStim LED Light Therapy to any facial, a $40 value. Exclusions may apply.
+        </p>
+      </div>
+
+      <!-- Categories -->
       <div class="space-y-16">
         {categories.map(cat => (
           <div>

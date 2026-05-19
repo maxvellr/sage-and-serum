@@ -12,63 +12,64 @@ const services = [
 ---
 
 <BaseLayout title="Spray Tan">
-  <main class="pt-28 pb-24">
+  <main class="pt-20 pb-24">
+
+    <!-- Full width banner -->
+    <!-- <div class="w-full h-96 overflow-hidden mb-12">
+      <img
+        src="/sage-and-serum/images/spray_room.jpg"
+        alt="Spray Tan Room at Sage & Serum"
+        class="w-full h-full object-cover object-center"
+      />
+    </div> -->
+
     <div class="max-w-6xl mx-auto px-6">
-      
 
-      <!-- Two col header -->
-      <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+      <!-- Header -->
+      <div class="max-w-2xl mb-8">
+        <h1 class="font-display text-6xl text-navy mb-6">Spray Tan</h1>
+        <p class="font-body text-base text-navy/60 leading-relaxed">
+          A flawless, natural looking tan formulated to match all skin tones. Book your appointment today.
+        </p>
+      </div>
 
-        <!-- Left: title + description + special + service card -->
-        <div class="space-y-6">
-          <h1 class="font-display text-6xl text-navy">Spray Tan</h1>
-          <p class="font-body text-base text-navy/60 leading-relaxed">
-            A flawless, natural looking tan formulated to match all skin tones. Book your appointment today.
-          </p>
-          <div class="bg-sage-warm/20 rounded-2xl p-6 border border-sage-warm/40">
-            <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-2">Limited Time Offer</p>
-            <h3 class="font-display text-2xl text-navy mb-1">Summer Spray Tan Special</h3>
-            <p class="font-body text-sm text-navy/60 leading-relaxed">
-              Now through August 1, 2026 — $65. Regular price $75.
-            </p>
-          </div>
-          <div class="flex items-center gap-4 pt-2">
+      <!-- Summer Special -->
+      <div class="my-8 bg-sage-warm/20 rounded-3xl p-8 border border-sage-warm/40">
+        <p class="font-body text-xs uppercase tracking-[0.25em] text-teal mb-3">Limited Time Offer</p>
+        <h3 class="font-display text-3xl text-navy mb-2">Summer Spray Tan Special</h3>
+        <p class="font-body text-sm text-navy/60 leading-relaxed max-w-xl">
+          Now through August 1, 2026 — $65. Regular price $75.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div class="space-y-16">
+        <div>
+          <div class="flex items-center gap-4 mb-8">
             <div class="w-8 h-px bg-teal" />
             <h2 class="font-display text-3xl text-navy">Services</h2>
           </div>
-          {services.map(s => (
-            <ServiceCard title={s.title} description={s.description} duration={s.duration} />
-          ))}
-          <div class="flex items-center gap-4 pt-2">
-  <div class="w-8 h-px bg-teal" />
-  <h2 class="font-display text-3xl text-navy">How to Prepare</h2>
-</div>
-<a
-  href="/sage-and-serum/spray-tan-prep.pdf"
-  target="_blank"
-  class="inline-flex items-center gap-2 font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4"
->
-  Download our Spray Tan Glow Guide →
-</a>
+          <div class="grid sm:grid-cols-2 gap-6">
+            {services.map(s => (
+              <ServiceCard title={s.title} description={s.description} duration={s.duration} />
+            ))}
+          </div>
         </div>
-
-        <!-- Right: photo matching left col height -->
-        <div class="rounded-3xl overflow-hidden border border-silver h-full min-h-[500px]">
-          <img
-            src="/sage-and-serum/images/spray-tan.JPEG"
-            alt="Spray Tan Room at Sage & Serum"
-            class="w-full h-full object-cover object-top"
-          />
-        </div>
-
       </div>
 
       <!-- Prep tips -->
-      <!-- <div class="mt-16">
+      <div class="mt-16">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-8 h-px bg-teal" />
           <h2 class="font-display text-3xl text-navy">How to Prepare</h2>
         </div>
+        <a
+          href="/sage-and-serum/spray-tan-prep.pdf"
+          target="_blank"
+          class="inline-flex items-center gap-2 font-body text-sm text-teal hover:text-navy transition-colors underline underline-offset-4 mb-8 block"
+        >
+          Download our Spray Tan Glow Guide →
+        </a>
         <div class="grid sm:grid-cols-3 gap-6">
           {[
             { title: 'Exfoliate', description: 'Exfoliate your skin 24 hours before your appointment for the most even, long-lasting result.', duration: '24 hrs before' },
@@ -78,12 +79,12 @@ const services = [
             <ServiceCard title={s.title} description={s.description} duration={s.duration} />
           ))}
         </div>
-      </div> -->
+      </div>
 
       <!-- CTA -->
       <div class="mt-8 bg-cream rounded-3xl p-10 border border-silver">
         <p class="font-body text-sm text-navy/60">
-          All services are by appointment only - please call or text Dawn to schedule at
+          All services are by appointment only — please call or text Dawn to schedule at
           <a href="tel:9494165125" class="text-teal hover:text-navy transition-colors">949-416-5125</a>.
         </p>
       </div>
