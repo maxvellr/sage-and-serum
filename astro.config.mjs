@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://maxvellr.github.io',
-  base: '/sage-and-serum',
+  base: '/',
   vite: {
     plugins: [tailwindcss()],
   },
